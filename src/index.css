@@ -10,7 +10,8 @@ body {
 }
 
 #root {
-  margin: 0 24px;
+  margin: auto;
   position: relative;
+  width: 80%;
   min-height: 100vh;
 }

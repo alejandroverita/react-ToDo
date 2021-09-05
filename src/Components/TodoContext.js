@@ -11,8 +11,6 @@ function TodoProvider(props) {
         loading,
         error,
     } = useLocalStorage('TODOS_V1', []);
-    
-    
 
     //contando cuantos estan completados
     const completedTodos = todos.filter(todo=> todo.completed).length // OR todo=> !!todo.completed
@@ -20,7 +18,7 @@ function TodoProvider(props) {
     //contando la extension de las tareas en total  
     const totalTodos = todos.length;
 
-
+    const [openModal, setOpenModal] = React.useState(false);
 
     //Creamos un estado que por defecto esta VACIO
     const [searchValue, setSearchValue] = React.useState('');
@@ -43,20 +41,37 @@ function TodoProvider(props) {
 
     }
 
-    
-
-    //Metodos para completar los ToDos. Al ejecutar la funcion se re-renderiza 
-    const completeTodo = (text) =>{
-    //recorre cada ToDo's y examina cual tiene exactamente ese mismo texto. Regresa la posicion
+    const completeTodo =(text) =>{
     const todoIndex = todos.findIndex(todo => todo.text === text)
 
     const newTodos = [...todos];
     
     //entra a la propiedad del objeto y la marca complete: TRUE
-    newTodos[todoIndex] = {
-        text: todos[todoIndex].text,
-        completed: true,
-    };
+        newTodos[todoIndex] = {
+            text: todos[todoIndex].text,
+            completed: true,
+        };
+        
+    // manda actualizar el estado
+    saveTodos(newTodos);
+    }
+
+    //Metodos para completar los ToDos. Al ejecutar la funcion se re-renderiza 
+    const addTodo = (text) =>{
+    //recorre cada ToDo's y examina cual tiene exactamente ese mismo texto. Regresa la posicion
+    // const todoIndex = todos.findIndex(todo => todo.text === text)
+
+    const newTodos = [...todos];
+    
+    //entra a la propiedad del objeto y la marca complete: TRUE
+    // newTodos[todoIndex] = {
+    //     text: todos[todoIndex].text,
+    //     completed: true,
+    // };
+    newTodos.push({
+        completed: false,
+        text, 
+    })
 
     // manda actualizar el estado
     saveTodos(newTodos);
@@ -85,8 +100,11 @@ function TodoProvider(props) {
             searchValue, 
             setSearchValue, 
             searchedTodos, 
+            addTodo,
             completeTodo, 
             deleteTodo, 
+            openModal,
+            setOpenModal,
 
         }}>
             {props.children}
