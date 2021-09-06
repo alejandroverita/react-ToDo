@@ -29,8 +29,7 @@
 
 .LoadingTodo-deleteIcon {
   position: absolute;
-  top: -24px;
-  right: 0;
+  right: 12px;
 }
 
 .LoadingTodo-container,
