@@ -1,6 +1,7 @@
 import React from 'react';
 
 /* Components */
+import { TodoHeader } from './Components/TodoHeader';
 import { TodoContext } from './Components/TodoContext';
 import { TodoCounter } from './Components/TodoCounter';
 import { TodoSearch } from './Components/TodoSearch';
@@ -8,6 +9,7 @@ import { TodoList } from './Components/TodoList';
 import { TodoItem } from './Components/TodoItem';
 import { CreateTodoButton } from './Components/CreateTodoButton';
 import { Form } from './Components/Form'
+import { Footer } from './Components/Footer';
 
 import { TodosError } from './Components/TodosError'
 import { TodosLoading } from './Components/TodosLoading'
@@ -31,9 +33,11 @@ function AppUI() {
     return (
     <React.Fragment>
     
-      <TodoCounter />
+      < TodoHeader >
+         <TodoCounter />
+         <TodoSearch />
 
-      <TodoSearch />
+      </ TodoHeader >
 
         <TodoList>
 
@@ -63,6 +67,8 @@ function AppUI() {
           setOpenModal={setOpenModal}
           openModal={openModal}
       />
+
+      <Footer />
       
     </React.Fragment>
     );

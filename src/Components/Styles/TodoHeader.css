@@ -1,0 +1,12 @@
+.TodoHeader {
+  /* background-color: #78839a; */
+  padding: 25px 0;
+  width: 100%;
+  border-radius: 0 0 50px 50px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.TodoTitle {
+  text-align: center;
+  font-size: 40px;
+}
