@@ -1,5 +1,5 @@
 import React from 'react';
-import './Styles/TodoHeader.css';
+import './TodoHeader.css';
 
 const TodoHeader = ({children, loading}) => {
     return (

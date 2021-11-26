@@ -1,7 +1,7 @@
 import React from 'react';
-import { TodoContext } from './TodoContext';
+import { TodoContext } from '../../Context/TodoContext';
 
-import './Styles/Form.css';
+import './Form.css';
 
 function Form () {
     const [newTodoValue, setNewTodoValue] = React.useState('');

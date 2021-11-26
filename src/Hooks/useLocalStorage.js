@@ -19,6 +19,7 @@ function useLocalStorage(itemName, initialValue) {
         
           //verifica si los usuarios son nuevos
           if (!localStorageItem) {
+            //JSON.stringify Nos permite transformar en texto un objeto o array de JS
             localStorage.setItem(itemName, JSON.stringify(initialValue));
             
             //Pasarle un estado por defecto

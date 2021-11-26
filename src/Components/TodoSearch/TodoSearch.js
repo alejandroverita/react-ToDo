@@ -1,7 +1,7 @@
 import React from 'react';
 
-import './Styles/TodoSearch.css';
-import { TodoContext } from './TodoContext';
+import './TodoSearch.css';
+import { TodoContext } from '../../Context/TodoContext';
 
 function TodoSearch() {
 

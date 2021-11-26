@@ -1,22 +1,22 @@
 import React from 'react';
 
-/* Components */
-import { TodoHeader } from './Components/TodoHeader';
-import { TodoContext } from './Components/TodoContext';
-import { TodoCounter } from './Components/TodoCounter';
-import { TodoSearch } from './Components/TodoSearch';
-import { TodoList } from './Components/TodoList';
-import { TodoItem } from './Components/TodoItem';
-import { CreateTodoButton } from './Components/CreateTodoButton';
-import { Form } from './Components/Form'
-import { Footer } from './Components/Footer';
-
-import { TodosError } from './Components/TodosError'
-import { TodosLoading } from './Components/TodosLoading'
-import { EmptyTodos } from './Components/EmptyTodos'
-
-/* Modal */
+/* Containers */
+import { TodoHeader } from './Header/TodoHeader';
+import { Footer } from './Footer/Footer';
 import { Modal } from './Modals/modal';
+
+/* Components */
+import { TodoContext } from '../Context/TodoContext';
+import { TodoCounter } from '../Components/TodoCounter/TodoCounter';
+import { TodoSearch } from '../Components/TodoSearch/TodoSearch';
+import { TodoList } from '../Components/TodoList/TodoList';
+import { TodoItem } from '../Components/TodoItem/TodoItem';
+import { CreateTodoButton } from '../Components/TodoButton/CreateTodoButton';
+import { Form } from '../Components/Form/Form';
+import { TodosError } from '../Components/TodosError/TodosError';
+import { TodosLoading } from '../Components/TodosLoading/TodosLoading';
+import { EmptyTodos } from '../Components/EmptyTodos/EmptyTodos';
+
 
 
 function AppUI() {

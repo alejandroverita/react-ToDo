@@ -1,18 +1,18 @@
 import React from 'react';
 
-import { TodoProvider } from './Components/TodoContext'
+import { TodoContext } from '../Context/TodoContext'
 
-import { AppUI } from './AppUI';
+import { AppUI } from '../Containers/AppUI';
 
 /* Styles */
 /* import './App.css'; */
 
 function App() {
   return (
-    <TodoProvider>
+    <TodoContext>
       <AppUI />
 
-    </TodoProvider>
+    </TodoContext>
   );
 }
 
