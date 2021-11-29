@@ -3,7 +3,7 @@ import React from 'react';
 /* Containers */
 import { TodoHeader } from './Header/TodoHeader';
 import { Footer } from './Footer/Footer';
-import { Modal } from './Modals/modal';
+import { Modal } from './Modals/Modal';
 
 /* Components */
 import { TodoContext } from '../Context/TodoContext';
@@ -43,7 +43,7 @@ function AppUI() {
 
           {error && <TodosError error={error} />}
           {loading && <TodosLoading />}
-          {(!loading && !searchedTodos) && <EmptyTodos /> }
+          {(!loading && !searchedTodos.length) && <EmptyTodos /> }
 
           {searchedTodos.map(todo=>(
             <TodoItem 

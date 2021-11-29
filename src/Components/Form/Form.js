@@ -29,11 +29,11 @@ function Form () {
     return (
 
         <form onSubmit={onAdd}>
-            <label>Escribe una nueva Tarea</label>
+            <label>Escribe una nueva tarea</label>
             <textarea 
             value ={newTodoValue}
             onChange = {onChange}
-            placeholder='Tomar la medicina de las 8'> 
+            placeholder='Agrega una tarea nueva'> 
                 
             </textarea>
             <div className='TodoForm__buttonContainer'>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocalStorage } from '../Hooks/useLocalStorage';
 
+//Tenemos 1 objeto con dos elementos {Consumer, Provider}
 const TodoContext = React.createContext();
 
 function TodoProvider(props) {
@@ -12,16 +13,15 @@ function TodoProvider(props) {
         error,
     } = useLocalStorage('TODOS_V1', []);
 
+    //Creamos un estado que por defecto esta VACIO
+    const [searchValue, setSearchValue] = React.useState('');
+    const [openModal, setOpenModal] = React.useState(false);
+
     //contando cuantos estan completados
-    const completedTodos = todos.filter(todo => todo.completed).length // OR todo=> !!todo.completed
+    const completedTodos = todos.filter(todo => todo.completed).length; // OR todo=> !!todo.completed
     
     //contando la extension de las tareas en total  
     const totalTodos = todos.length;
-
-    const [openModal, setOpenModal] = React.useState(false);
-
-    //Creamos un estado que por defecto esta VACIO
-    const [searchValue, setSearchValue] = React.useState('');
 
     let searchedTodos = [];
 
@@ -29,15 +29,15 @@ function TodoProvider(props) {
         //si usuario no ha escrito nada, el nuevo array va a ser igual a nuestra lista default
         searchedTodos = todos;
     } else {
-            searchedTodos = todos.filter(todo=>{
-                //Transfroma todos los ToDo's a minusculas
-                const todoText = todo.text.toLowerCase()
-                //Toda la busqueda la transforma en minuscula
-                const searchText = searchValue.toLowerCase();
+        searchedTodos = todos.filter(todo=>{
+            //Transfroma todos los ToDo's a minusculas
+            const todoText = todo.text.toLowerCase()
+            //Toda la busqueda la transforma en minuscula
+            const searchText = searchValue.toLowerCase();
 
-            //Por cada uno de los ToDo's incluyen en alguna parte el texto que escribimos en la seccion de busqueda
-            return todoText.includes(searchText);
-        });
+        //Por cada uno de los ToDo's incluyen en alguna parte el texto que escribimos en la seccion de busqueda
+        return todoText.includes(searchText);
+    });
 
     }
 
@@ -47,10 +47,7 @@ function TodoProvider(props) {
         const newTodos = [...todos];
         
         //entra a la propiedad del objeto y la marca complete: TRUE
-        newTodos[todoIndex] = {
-            text: todos[todoIndex].text,
-            completed: true,
-        };
+        newTodos[todoIndex].completed = true;
             
         // manda actualizar el estado
         saveTodos(newTodos);
@@ -96,6 +93,7 @@ function TodoProvider(props) {
     };
 
     return (
+        //Estados y valores que vamos a compartir en los children
         <TodoContext.Provider value ={{
             loading, 
             error, 
@@ -110,11 +108,11 @@ function TodoProvider(props) {
             openModal,
             setOpenModal,
 
-        }}>
-            {props.children}
+        }}> 
+        
+            {props.children} {/* AppUi */}
         </TodoContext.Provider>
     );
 }
 
-export { TodoContext, TodoProvider};
-<TodoContext.Consumer></TodoContext.Consumer>
+export { TodoContext, TodoProvider}; 
