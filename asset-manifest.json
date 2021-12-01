@@ -1,24 +1,22 @@
 {
   "files": {
-    "main.css": "/react-ToDo/static/css/main.edf5e8aa.chunk.css",
-    "main.js": "/react-ToDo/static/js/main.10db3a5e.chunk.js",
-    "main.js.map": "/react-ToDo/static/js/main.10db3a5e.chunk.js.map",
-    "runtime-main.js": "/react-ToDo/static/js/runtime-main.09f4a65f.js",
-    "runtime-main.js.map": "/react-ToDo/static/js/runtime-main.09f4a65f.js.map",
-    "static/js/2.c90f36de.chunk.js": "/react-ToDo/static/js/2.c90f36de.chunk.js",
-    "static/js/2.c90f36de.chunk.js.map": "/react-ToDo/static/js/2.c90f36de.chunk.js.map",
-    "static/js/3.654e0906.chunk.js": "/react-ToDo/static/js/3.654e0906.chunk.js",
-    "static/js/3.654e0906.chunk.js.map": "/react-ToDo/static/js/3.654e0906.chunk.js.map",
-    "index.html": "/react-ToDo/index.html",
-    "static/css/main.edf5e8aa.chunk.css.map": "/react-ToDo/static/css/main.edf5e8aa.chunk.css.map",
-    "static/js/2.c90f36de.chunk.js.LICENSE.txt": "/react-ToDo/static/js/2.c90f36de.chunk.js.LICENSE.txt",
-    "static/media/check.bf6a0502.svg": "/react-ToDo/static/media/check.bf6a0502.svg",
-    "static/media/remove.562b6f7b.svg": "/react-ToDo/static/media/remove.562b6f7b.svg"
+    "main.css": "/react-todo/static/css/main.dfce003c.chunk.css",
+    "main.js": "/react-todo/static/js/main.b880b86c.chunk.js",
+    "main.js.map": "/react-todo/static/js/main.b880b86c.chunk.js.map",
+    "runtime-main.js": "/react-todo/static/js/runtime-main.26e2715a.js",
+    "runtime-main.js.map": "/react-todo/static/js/runtime-main.26e2715a.js.map",
+    "static/js/2.8ab3c1af.chunk.js": "/react-todo/static/js/2.8ab3c1af.chunk.js",
+    "static/js/2.8ab3c1af.chunk.js.map": "/react-todo/static/js/2.8ab3c1af.chunk.js.map",
+    "index.html": "/react-todo/index.html",
+    "static/css/main.dfce003c.chunk.css.map": "/react-todo/static/css/main.dfce003c.chunk.css.map",
+    "static/js/2.8ab3c1af.chunk.js.LICENSE.txt": "/react-todo/static/js/2.8ab3c1af.chunk.js.LICENSE.txt",
+    "static/media/check.bf6a0502.svg": "/react-todo/static/media/check.bf6a0502.svg",
+    "static/media/remove.562b6f7b.svg": "/react-todo/static/media/remove.562b6f7b.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.09f4a65f.js",
-    "static/js/2.c90f36de.chunk.js",
-    "static/css/main.edf5e8aa.chunk.css",
-    "static/js/main.10db3a5e.chunk.js"
+    "static/js/runtime-main.26e2715a.js",
+    "static/js/2.8ab3c1af.chunk.js",
+    "static/css/main.dfce003c.chunk.css",
+    "static/js/main.b880b86c.chunk.js"
   ]
 }
