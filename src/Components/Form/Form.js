@@ -20,13 +20,15 @@ function Form () {
     };
 
     const onChange =(event) =>{
-        setNewTodoValue(event.target.value)
+        if(event.target.value !== null){
+            setNewTodoValue(event.target.value)
+        }else{
+            setOpenModal(false);
+        }
     }
 
     const onCancel = () => {
-        
         setOpenModal(false);
-        
     };
 
 
