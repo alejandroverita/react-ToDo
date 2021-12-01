@@ -4,6 +4,7 @@ import { TodoContext } from '../../Context/TodoContext';
 import './Form.css';
 
 function Form () {
+    
     const [newTodoValue, setNewTodoValue] = React.useState('');
     
     const {
@@ -23,12 +24,23 @@ function Form () {
     }
 
     const onCancel = () => {
-        setOpenModal(false)
+        
+        setOpenModal(false);
+        
     };
+
+
+    const onKeyUp = (e) => {
+        if(e.charCode === 13){
+            e.preventDefault();
+            addTodo(newTodoValue);
+            onCancel();
+        };
+    }
     
     return (
-
-        <form onSubmit={onAdd}>
+        
+        <form className='Form' onSubmit={onAdd} onKeyPress={onKeyUp}>
             <label>Escribe una nueva tarea</label>
             <textarea 
             value ={newTodoValue}

@@ -7,6 +7,7 @@ function CreateTodoButton({setOpenModal, openModal}){
     const onClickButton = () =>{
         // props.setOpenModal(prevState => return !prevState) //retorna una respues contraria a la pasada por parametro
         setOpenModal(!openModal)
+
     };
     return (
         <button 

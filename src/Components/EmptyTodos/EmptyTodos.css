@@ -1,0 +1,19 @@
+.EmptyTodos {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.EmptyTodos img {
+  width: auto;
+  height: auto;
+}
+
+.EmptyTodos-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.EmptyTodos-paragraph {
+  font-size: 20px;
+}

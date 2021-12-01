@@ -34,6 +34,7 @@ function AppUI() {
     <React.Fragment>
     
       < TodoHeader >
+        {loading}
          <TodoCounter />
          <TodoSearch />
 
@@ -41,8 +42,8 @@ function AppUI() {
 
         <TodoList>
 
-          {error && <TodosError error={error} />}
           {loading && <TodosLoading />}
+          {error && <TodosError error={error} />}
           {(!loading && !searchedTodos.length) && <EmptyTodos /> }
 
           {searchedTodos.map(todo=>(

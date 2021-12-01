@@ -6,7 +6,7 @@ const TodoContext = React.createContext();
 
 function TodoProvider(props) {
 
-    const {
+    const { 
         item: todos, 
         saveItem: saveTodos, 
         loading,
@@ -17,8 +17,11 @@ function TodoProvider(props) {
     const [searchValue, setSearchValue] = React.useState('');
     const [openModal, setOpenModal] = React.useState(false);
 
+    
+    
     //contando cuantos estan completados
     const completedTodos = todos.filter(todo => todo.completed).length; // OR todo=> !!todo.completed
+    /* console.log(completedTodos); */
     
     //contando la extension de las tareas en total  
     const totalTodos = todos.length;
@@ -107,7 +110,7 @@ function TodoProvider(props) {
             deleteTodo, 
             openModal,
             setOpenModal,
-
+            
         }}> 
         
             {props.children} {/* AppUi */}
