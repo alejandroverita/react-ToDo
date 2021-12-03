@@ -1,10 +1,8 @@
 import React from 'react';
-import { useLocalStorage } from '../Hooks/useLocalStorage';
+import { useLocalStorage } from './useLocalStorage';
 
-//Tenemos 1 objeto con dos elementos {Consumer, Provider}
-const TodoContext = React.createContext();
 
-function TodoProvider(props) {
+function useTodos() {
 
     const { 
         item: todos, 
@@ -16,9 +14,7 @@ function TodoProvider(props) {
     //Creamos un estado que por defecto esta VACIO
     const [searchValue, setSearchValue] = React.useState('');
     const [openModal, setOpenModal] = React.useState(false);
-
-    
-    
+  
     //contando cuantos estan completados
     const completedTodos = todos.filter(todo => todo.completed).length; // OR todo=> !!todo.completed
     /* console.log(completedTodos); */
@@ -95,9 +91,7 @@ function TodoProvider(props) {
 
     };
 
-    return (
-        //Estados y valores que vamos a compartir en los children
-        <TodoContext.Provider value ={{
+    return {
             loading, 
             error, 
             totalTodos, 
@@ -111,11 +105,7 @@ function TodoProvider(props) {
             openModal,
             setOpenModal,
             
-        }}> 
-        
-            {props.children} {/* AppUi */}
-        </TodoContext.Provider>
-    );
+        }
 }
 
-export { TodoContext, TodoProvider}; 
+export { useTodos }; 

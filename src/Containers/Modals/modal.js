@@ -3,13 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './Modal.css';
 
-import {TodoContext} from '../../Context/TodoContext';
-
-function Modal({ children}) {
-
-    const {
-        setOpenModal,
-    } = React.useContext(TodoContext)
+function Modal({ children, setOpenModal}) {
 
     const onCancel = (event) => {
         if (event.target.className==='ModalBackground'){

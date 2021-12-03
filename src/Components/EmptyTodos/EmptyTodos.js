@@ -6,11 +6,14 @@ function EmptyTodos() {
     return (
         
         <div className='EmptyTodos'>
-            {/*  <img src='../../Assets/icons/not-found.svg' alt='Not Found'/> */}
+            {/* <div>
+             <img src='../../Assets/img/start.jpg' alt='Write a note'/>
+             <a href="http://www.freepik.com">Designed by slidesgo / Freepik</a>
+            </div> */}
             <h2 className='EmptyTodos-Title'>
-                No hay tareas pendientes hoy
+                Crea tu primer ToDo's!
             </h2 >
-            <p className='EmptyTodos-paragraph'>Crea tu primer ToDo's! </p>
+            <p className='EmptyTodos-paragraph'> Para agregar tu primer TODO presiona el boton <span>+</span> </p>
         </div>
         
             

@@ -1,30 +1,27 @@
 import React from 'react';
-import { TodoContext } from '../../Context/TodoContext';
 
 import './Form.css';
 
-function Form () {
+function Form ({addTodo, setOpenModal}) {
     
     const [newTodoValue, setNewTodoValue] = React.useState('');
-    
-    const {
-        addTodo,
-        setOpenModal,
-    } = React.useContext(TodoContext)
+
+    const [placeholder, setPlaceholder] = React.useState('Escribe una tarea');
     
     const onAdd = (event) =>{
         event.preventDefault();
+
+        if(newTodoValue.length > 0){
+            addTodo(newTodoValue)
+            setOpenModal(false)
+        } else {
+            setPlaceholder('Escribe una tarea para añadirla :)');
+        }
         
-        addTodo(newTodoValue)
-        setOpenModal(false)
     };
 
     const onChange =(event) =>{
-        if(event.target.value !== null){
-            setNewTodoValue(event.target.value)
-        }else{
-            setOpenModal(false);
-        }
+        setNewTodoValue(event.target.value)
     }
 
     const onCancel = () => {
@@ -39,15 +36,18 @@ function Form () {
             onCancel();
         };
     }
+
+    
     
     return (
         
         <form className='Form' onSubmit={onAdd} onKeyPress={onKeyUp}>
             <label>Escribe una nueva tarea</label>
             <textarea 
+            
             value ={newTodoValue}
             onChange = {onChange}
-            placeholder='Agrega una tarea nueva'> 
+            placeholder={placeholder}> 
                 
             </textarea>
             <div className='TodoForm__buttonContainer'>
