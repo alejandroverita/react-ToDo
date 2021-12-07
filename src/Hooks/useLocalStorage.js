@@ -2,6 +2,9 @@ import React from 'react';
 
 function useLocalStorage(itemName, initialValue) {
 
+    //Este estado nos dice si estamos sincronizados con las demas pestanas del navegador
+    const [sincronizedItem, setSincronizedItem] = React.useState(true);
+
     const [error, setError] = React.useState(false);
   
     const [loading, setLoading] = React.useState(true);
@@ -35,13 +38,15 @@ function useLocalStorage(itemName, initialValue) {
           setItem(parsedItem);
   
           //actualiza el estado de carga 
-          setLoading(false)
+          setLoading(false) 
+
+          setSincronizedItem(true);
         
         } catch (error) {
             setError(error);
         }
       }, 3000);
-    });
+    }, [sincronizedItem]);
     
     
     //Actualiza informacion en el LocalStorage
@@ -57,12 +62,19 @@ function useLocalStorage(itemName, initialValue) {
         setError(error);
       }
     };
+
+    const sincronizeItem = () =>{
+      setLoading(true);
+      setSincronizedItem(false);
+    }
+    
   
     return {
       item,
       saveItem,
       loading,
-      error
+      error, 
+      sincronizeItem,
   
     };
   

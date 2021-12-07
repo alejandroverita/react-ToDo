@@ -1,0 +1,29 @@
+.ChangeAlert {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1e1e1f50;
+  z-index: 2;
+}
+
+.ChangeAlert-container {
+  position: fixed;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
+  padding: 30px;
+  background: black;
+  color: white;
+  text-align: -webkit-center;
+}
+
+.TodoForm-button {
+  max-width: 300px;
+}
+
+.TodoForm-button-add {
+  box-shadow: none;
+  color: white;
+}

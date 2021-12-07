@@ -69,6 +69,64 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
+### PreViews
+
+This views are subjected to changes.
+
+- IPad Pro
+
+![iPad Pro.png](https://static.platzi.com/media/user_upload/iPad%20Pro-f8e08748-9931-4ac0-8180-b753ab4d5e85.jpg)
+
+- IPhone
+
+![iPhone X.png](https://static.platzi.com/media/user_upload/iPhone%20X-837dfdfb-5ae6-44bf-b4b7-5b9130566237.jpg)
+
+- Portatil
+
+![portatil.png](https://static.platzi.com/media/user_upload/portatil-b0b6d9ce-4947-4145-8677-c81a92f4c42a.jpg)
+
 ### Folders
 
 ![folders.png](https://static.platzi.com/media/user_upload/folders-d4568b2e-b12b-4fe3-b3a4-0b6db1ad05cf.jpg)
+
+### High Order Components
+
+–
+Las funciones como las conocemos pueden devolvernos un valor en sus returns, pero estas funciones de “orden superior”, son funciones que devuelven otras funciones.
+
+–
+Si llamamos a la high order function y le enviamos un parámetro no tendremos todavía un resultado, como está devolviendo otra función tenemos que llamar a esa función que obtenemos luego de llamar a la de orden superior, enviarle los nuevos parámetros que necesita la función de retorno y entonces si, obtendremos nuestro resultado.
+
+### Render props vs. High Order Components vs. React Hooks
+
+–
+
+#### Maquetación
+
+**Render props o render functions vs React hooks**
+
+Ambas son formas correctas de trabajar y comunes.
+Las render props suben el nivel de elegancia del código pero también pueden bajar el nivel de código aburrido comparado con los react hooks.
+Si practicamos mucho podremos usar las render props de manera mucho más saludable para los componentes más estructuralmente importantes de nuestras apps. Nos ayudan a proteger nuestros componentes para que no nos equivoquemos y la maquetación sea correcta.
+–
+
+#### Share data, compartir información entre componentes.
+
+Aquí participan todos los patrones.
+
+- Render Functions:
+
+Compartir info con funciones que en sus parámetros nos dejan esa info que necesitamos que nos compartieran.
+Si necesitamos demasiada info de distintas render functions para un mismo componente deja de verse bien y podría llegar al código spaghetti.
+
+- HOC:
+
+Funciones que pueden retornar y retornar y retornar otras funciones hasta que en algún momento retornemos un componente de react y podamos pasarle toda la info.
+Usarlos es sencillo, envolvemos nuestros componentes en estos HOC y automáticamente van a recibir toda la info que nos querían compartir estos HOC.
+Si necesitamos la info de muchos HOC’S en un mismo componente tenemos el mismo problema que con las render functions. Código muy horizontal.
+–
+**React hooks**
+
+Llamamos al react hook (oficial o custom) y luego consumimos la info en el return del componente.
+Cuando tenemos muchos llamados a distintos react hooks no hay código horizontal.
+Ganaron los hooks para compartir info entre varios componentes
