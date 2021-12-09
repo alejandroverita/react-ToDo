@@ -12,6 +12,13 @@ function useTodos() {
         error,
     } = useLocalStorage('TODOS_V1', []);
 
+    const {
+        item: user,
+        saveItem: setUser,
+        loading: loadingUser,
+    } = useLocalStorage('USER_V1', '')
+    
+    
     //Creamos un estado que por defecto esta VACIO
     const [searchValue, setSearchValue] = React.useState('');
     const [openModal, setOpenModal] = React.useState(false);
@@ -92,6 +99,12 @@ function useTodos() {
 
     };
 
+    React.useEffect(() => !loadingUser && !user && setOpenModal(true), [])
+
+    const addUser = (user) => {
+        setUser(user);
+    }
+
     return {
             loading, 
             error, 
@@ -105,6 +118,8 @@ function useTodos() {
             deleteTodo, 
             openModal,
             setOpenModal,
+            user,
+            addUser,
             sincronizeTodos,
         }
 }

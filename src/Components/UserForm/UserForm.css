@@ -1,0 +1,76 @@
+.UserForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  min-width: 300px;
+  max-width: 400px;
+  height: 316px;
+  padding: 12px;
+  font-size: 1.2rem;
+  text-align: center;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.UserForm h2 {
+  color: #1e1e1f;
+  margin: 0;
+}
+
+.UserForm p {
+  color: #1e1e1f;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.UserForm label {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #1e1e1f;
+}
+
+.UserForm input {
+  background-color: #f9fbfc;
+  border: 2px solid #202329;
+  border-radius: 2px;
+  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
+  color: #1e1e1f;
+  font-size: 20px;
+  text-align: center;
+  padding: 12px;
+  height: 96px;
+  width: calc(100%-25px);
+
+  width: 60%;
+  height: 24px;
+  margin-bottom: 8px;
+  padding: 12px;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+}
+
+.UserForm__button {
+  width: max-content;
+  height: 52px;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  background-color: rgba(97, 218, 250, 1);
+  box-shadow: 7px -1px 20px rgb(97 218 250 / 50%);
+  margin-bottom: 12px;
+  height: 48px;
+  font-size: 20px;
+  background-size: 200% auto;
+}
+
+.UserForm__button:hover {
+  background-position: right center;
+}

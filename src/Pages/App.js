@@ -19,8 +19,9 @@ import { Form } from '../Components/Form/Form';
 import { TodosError } from '../Components/TodosError/TodosError';
 import { TodosLoading } from '../Components/TodosLoading/TodosLoading';
 import { EmptyTodos } from '../Components/EmptyTodos/EmptyTodos';
+import { UserForm } from '../Components/UserForm/UserForm';
 
-import { ChangeAlertWithStorageListener } from '../Components/ChangeAlert/ChangeAlert';
+import { ChangeAlert } from '../Components/ChangeAlert/ChangeAlert';
 
 /* Styles */
 import './App.css';
@@ -40,6 +41,8 @@ function App() {
     searchValue, 
     setSearchValue,
     addTodo,
+    user,
+    addUser,
     sincronizeTodos,
   } = useTodos();
   
@@ -51,6 +54,7 @@ function App() {
          <TodoCounter 
           totalTodos={totalTodos}
           completedTodos={completedTodos}
+          user = {user}
          />
          <TodoSearch 
           searchValue = {searchValue}
@@ -96,10 +100,26 @@ function App() {
 
       </TodoList>
 
-      {openModal && (
+      <CreateTodoButton
+          setOpenModal={setOpenModal}
+          openModal={openModal}
+      />
+
+      {!loading && !user && openModal && (
+        <Modal
+          setOpenModal={setOpenModal}
+        >
+            <UserForm 
+              setOpenModal={setOpenModal} 
+              addUser={addUser} />
+        </Modal>
+      )}
+
+
+      {user && openModal && (
 
         <Modal 
-        setOpenModal={setOpenModal}
+         setOpenModal={setOpenModal}
         >
           
           <Form
@@ -109,12 +129,8 @@ function App() {
         </Modal>
       )}
 
-      <CreateTodoButton
-          setOpenModal={setOpenModal}
-          openModal={openModal}
-      />
 
-      <ChangeAlertWithStorageListener 
+      <ChangeAlert 
         sincronize = {sincronizeTodos}
       />
       

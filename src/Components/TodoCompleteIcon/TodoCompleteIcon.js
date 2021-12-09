@@ -1,6 +1,7 @@
 import React from 'react';
 import { TodoIcon } from '../TodoIcon/TodoIcon';
 
+import './TodoCompleteIcon.css';
 
 function TodoCompleteIcon ({completed, onComplete}){
     return (
@@ -11,5 +12,5 @@ function TodoCompleteIcon ({completed, onComplete}){
         />
     );
 }
-
+ 
 export { TodoCompleteIcon };
