@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 50px;
+  height: 60px;
   width: 100%;
   text-align: center;
   max-width: 75%;
@@ -16,20 +16,21 @@ a {
   text-decoration: none;
   color: #172a57;
   text-align: center;
-  margin: 0 20px;
+  margin: 10px 20px;
   font-size: 12px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-items: center;
 }
-.icon {
-  font-size: 18px;
+.Footer-icon {
+  font-size: 30px;
   margin-bottom: 5px;
   color: #172a57;
-  margin: auto 0;
+  margin: 5px 0;
   margin-right: 5px;
 }
+
 @media (max-width: 1080px) {
   .Footer {
     max-width: 75%;

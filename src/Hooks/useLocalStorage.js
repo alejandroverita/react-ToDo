@@ -2,14 +2,35 @@ import React from 'react';
 
 function useLocalStorage(itemName, initialValue) {
 
-    //Este estado nos dice si estamos sincronizados con las demas pestanas del navegador
-    const [sincronizedItem, setSincronizedItem] = React.useState(true);
+    const [state, dispatch] = React.useReducer(reducer, initialState({initialValue}));
 
-    const [error, setError] = React.useState(false);
-  
-    const [loading, setLoading] = React.useState(true);
-    
-    const [item, setItem] = React.useState(initialValue);
+    //desestructuracion del estado 
+    const {
+      sincronizedItem,
+      error,
+      loading,
+      item,
+    } = state;
+
+    //ACTION CREATORS
+    const onError = (error) => dispatch({
+      type: actionTypes.ERROR, 
+      payload: error
+    });
+
+    const onSuccess = (item) => dispatch({
+      type: actionTypes.SUCCESS, 
+      payload: item
+    });
+
+    const onSave = (item) => dispatch({
+      type: actionTypes.SAVE,
+      payload: item
+    });
+
+    const onSincronize = () => dispatch({
+      type: actionTypes.SINCRONIZE,
+    })
   
     React.useEffect(()=>{
       setTimeout(() => {
@@ -33,17 +54,10 @@ function useLocalStorage(itemName, initialValue) {
             //transforma la informacion contenido en un string a un objeto JS comun y corriente 
             parsedItem = JSON.parse(localStorageItem);
           }
-  
-          //actualiza el estado del item
-          setItem(parsedItem);
-  
-          //actualiza el estado de carga 
-          setLoading(false) 
-
-          setSincronizedItem(true);
+          onSuccess(parsedItem)
         
         } catch (error) {
-            setError(error);
+            onError(error);
         }
       }, 3000);
     }, [sincronizedItem]);
@@ -53,22 +67,18 @@ function useLocalStorage(itemName, initialValue) {
     const saveItem = (newItem)=> {
       try {
         const stringifiedItem = JSON.stringify(newItem);
-  
         localStorage.setItem(itemName, stringifiedItem)
-  
-        //El estado no necesita el string del array, solo el LOCALSTORAGE
-        setItem(newItem);
+        onSave(newItem);
+        
       } catch {
-        setError(error);
+        onError(error);
       }
     };
 
     const sincronizeItem = () =>{
-      setLoading(true);
-      setSincronizedItem(false);
+      onSincronize();
     }
-    
-  
+     
     return {
       item,
       saveItem,
@@ -78,6 +88,55 @@ function useLocalStorage(itemName, initialValue) {
   
     };
   
+}
+
+const initialState = ({initialValue }) =>({
+  sincronizeItem: true,
+  error: false,
+  loading: true,
+  item: initialValue,
+});
+
+
+const actionTypes = {
+  ERROR: 'ERROR',
+  SUCCESS: 'SUCCESS',
+  SAVE: 'SAVE',
+  SINCRONIZE : 'SINCRONIZE',
+};
+
+const reducerObject = (state, payload) => ({
+  [actionTypes.ERROR]:{
+    ...state,
+    error: true,
+  },
+
+  [actionTypes.SUCCESS]:{
+    ...state,
+    error: false,
+    loading: false,
+    sincronizedItem: true,
+    item: payload,
+  },
+
+  [actionTypes.SAVE] : {
+    ...state,
+    item: payload,
+
+  },
+
+  [actionTypes.SINCRONIZE]: {
+    ...state,
+    loading: true,
+    sincronizedItem: false,
+
+  },
+  
+});
+
+
+const reducer = (state, action) => {
+  return reducerObject(state, action.payload)[action.type] || state;
 }
 
 export { useLocalStorage }

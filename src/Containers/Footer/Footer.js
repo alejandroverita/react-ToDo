@@ -6,16 +6,16 @@ const Footer = () => {
     return (
         <div className="Footer">
             <a href="https://www.instagram.com/alejandroverahdez/" target="__blank"><SiInstagram
-                className="icon"
-            /><span>@alejandrovera</span></a>
+                className="Footer-icon"
+            /><span >@alejandrovera</span></a>
             <a href="https://www.linkedin.com/in/alejandro-vera-278713192/" target="__blank"><SiLinkedin
-                className="icon"
+                className="Footer-icon"
             /><span>@alejandro-vera</span></a>
             <a href="https://github.com/alejandroverita" target="__blank"><SiGithub
-                className="icon"
+                className="Footer-icon"
             /><span>@alejandroverita</span></a>
         </div>
     );
 }
-
+ 
 export {Footer};
